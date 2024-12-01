@@ -1,0 +1,21 @@
+{
+  "name": "cadastro-desenvolvedores/backend",
+  "description": "",
+  "type": "project",
+  "authors": [
+    {
+      "name": "vitor rocha",
+      "email": "vitorsrocha1996@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.0",
+    "ext-pdo": "*",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}
