@@ -3,13 +3,13 @@
 namespace App\Infrastructure\Controller;
 
 use App\Application\DTOs\DevelopersDTO;
+use App\Application\Repository\DeveloperRepository;
+use App\Application\Repository\LevelRepository;
 use App\Application\UseCase\Developer\CreateDeveloper;
 use App\Application\UseCase\Developer\DeleteDeveloper;
 use App\Application\UseCase\Developer\ListDeveloper;
 use App\Application\UseCase\Developer\UpdateDeveloper;
 use App\Infrastructure\DataBases\DataBaseConnection;
-use App\Infrastructure\Repository\DeveloperRepository;
-use App\Infrastructure\Repository\LevelRepository;
 use Exception;
 use PDOException;
 

@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Infrastructure\Repository;
+namespace App\Application\Repository;
 
 use App\Application\DTOs\DevelopersDTO;
 use App\Domain\Entities\Developer;
 use App\Domain\Repository\DeveloperRepositoryInterface;
 use DateTimeImmutable;
 use PDO;
+
 class DeveloperRepository implements DeveloperRepositoryInterface
 {
      private PDO $pdo;
@@ -68,6 +69,9 @@ class DeveloperRepository implements DeveloperRepositoryInterface
         return $stmt->execute();
     }
 
+    /**
+     * @throws \DateMalformedStringException
+     */
     public function findByNivelDeveloper(int $nivel_id): ?Developer
     {
         $stmt = $this->pdo->prepare('SELECT * FROM desenvolvedores WHERE nivel_id = :nivel_id');
@@ -84,7 +88,7 @@ class DeveloperRepository implements DeveloperRepositoryInterface
             $row['nivel_id'],
             $row['nome'],
             $row['sexo'],
-            $row['data_nascimento'],
+            new DateTimeImmutable($row['data_nascimento']),
             $row['hobby']);
     }
 

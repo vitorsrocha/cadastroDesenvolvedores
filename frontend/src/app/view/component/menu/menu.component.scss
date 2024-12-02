@@ -1,0 +1,36 @@
+
+.matToolbarRow{
+    width: 300px;
+    position: absolute;
+    z-index: 1000;
+    box-shadow: 3px 3px 3px #4538f8;
+  }
+  
+  a{
+    text-decoration: none;
+    color: black;
+    
+  }
+  
+  .toolbarRow{
+    transition: all .5s;
+    border: 2px solid transparent;
+  }
+  
+  .toolbarRow:hover{
+    border: 2px solid #136497;
+  }
+  
+  .logout:hover{
+    transition: all .5s;
+    background-color: #ff0000;
+    color: white;
+    .logoutIcon {
+      transition: all .5s;
+    }
+  }
+  
+  .user{
+    position: absolute;
+    right: 20px;
+  }

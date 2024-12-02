@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Infrastructure\Repository;
+namespace App\Application\Repository;
 
 use App\Application\DTOs\LevelDTO;
 use App\Domain\Entities\Level;
 use App\Domain\Repository\LevelRepositoryInterface;
 use PDO;
+
 class LevelRepository implements LevelRepositoryInterface
 {
     private PDO $pdo;
