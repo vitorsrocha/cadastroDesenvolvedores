@@ -21,12 +21,14 @@ class DeleteLevel
     {
         if(is_null($this->repository->findById($id))) {
             http_response_code(400);
-            throw new Exception("Nenhum registro encontrado.");
+            echo json_encode("Nenhum registro encontrado.");
+            return false;
         }
 
         if(!is_null($this->developerRepository->findByNivelDeveloper($id))){
             http_response_code(400);
-            throw new Exception("existe desenvolvedor associado ao nivel");
+            echo json_encode("existe desenvolvedor associado ao nivel");
+            return false;
         }
 
         return $this->repository->delete($id);

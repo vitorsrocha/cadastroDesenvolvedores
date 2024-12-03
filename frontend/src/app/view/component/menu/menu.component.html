@@ -1,40 +1,30 @@
 <mat-toolbar>
-    <button mat-icon-button (click)="showMenu()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <a href="/desenvolvedores">
-      <span title="Home">Desenvolvedores</span>
-    </a>
-    <!-- <button mat-icon-button class="user">
+  <button mat-icon-button (click)="showMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <a href="/desenvolvedores">
+    <span title="Home">Desenvolvedores</span>
+  </a>
+  <!-- <button mat-icon-button class="user">
       <mat-icon fontIcon="person"></mat-icon>
     </button> -->
+</mat-toolbar>
+<div
+  *ngIf="isShowMenu"
+  class="matToolbarRow"
+  (mouseenter)="openMenu()"
+  (mouseleave)="closeMenu()"
+>
+  <mat-toolbar>
+    <a href="/desenvolvedores" class="toolbarRow">
+      <mat-icon fontIcon="group" color="primary"></mat-icon>
+      <span style="margin-left: 5px">Desenvolvedores</span>
+    </a>
   </mat-toolbar>
-  <div
-    *ngIf="isShowMenu"
-    class="matToolbarRow"
-    (mouseenter)="openMenu()"
-    (mouseleave)="closeMenu()"
-  >
-    <mat-toolbar>
-      <a href="/desenvolvedores" class="toolbarRow">
-        <mat-toolbar-row>
-          <!-- <span class="material-symbols-outlined">Users</span> -->
-          <mat-icon fontIcon="group" color="primary"></mat-icon>
-          <span style="margin-left: 5px;">Desenvolvedores</span> 
-        </mat-toolbar-row>
-      </a>
-      <a href="/niveis">
-        <mat-toolbar-row class="toolbarRow">
-          <mat-icon fontIcon="view_column" color="primary"></mat-icon>
-          <span style="margin-left: 5px;">Niveis</span> 
-        </mat-toolbar-row>
-      </a>
-  
-      <!-- <a href="" class="logout">
-        <mat-toolbar-row>
-          <mat-icon fontIcon="logout" color="primary"></mat-icon>
-          <span style="margin-left: 5px;">Users</span> 
-        </mat-toolbar-row>
-      </a> -->
-    </mat-toolbar>
-  </div>
+  <mat-toolbar>
+    <a href="/niveis" class="toolbarRow">
+      <mat-icon fontIcon="view_column" color="primary"></mat-icon>
+      <span style="margin-left: 5px">Niveis</span>
+    </a>
+  </mat-toolbar>
+</div>

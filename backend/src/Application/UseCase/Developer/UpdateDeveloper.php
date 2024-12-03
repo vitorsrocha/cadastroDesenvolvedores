@@ -20,25 +20,25 @@ class UpdateDeveloper
         $this->levelRepository = $levelRepository;
     }
 
-    /**
-     * @throws \DateMalformedStringException
-     */
-    public function execute(DevelopersDTO $developerDTO, int $id): Developer
+    public function execute(DevelopersDTO $developerDTO, int $id): ?Developer
     {
         $level = $this->levelRepository->findById($developerDTO->getNivelId());
         if (empty($level)) {
             http_response_code(400);
-            throw new Exception("Nivel inexistente");
+            echo json_encode("Nivel inexistente");
+            return null;
         }
 
-        if(is_null($this->repository->findByDeveloper($id))) {
+        if(is_null($this->repository->findByIdDeveloper($id))) {
             http_response_code(400);
-            throw new Exception('Nenhum registro encontrado');
+            echo json_encode('Nenhum registro encontrado');
+            return null;
         }
 
         if (empty($developerDTO->getNivelId()) || empty($developerDTO->getNome()) || empty($developerDTO->getSexo()) || empty($developerDTO->getDataNascimento()) || empty($developerDTO->getHobby())) {
             http_response_code(400);
-            throw new Exception("Todos os campos são obrigatórios");
+            echo json_encode("Todos os campos são obrigatórios");
+            return null;
         }
 
         return $this->repository->update(new Developer(
@@ -46,7 +46,7 @@ class UpdateDeveloper
             $developerDTO->getNivelId(),
             $developerDTO->getNome(),
             $developerDTO->getSexo(),
-            new DateTimeImmutable($developerDTO->getDataNascimento()),
+            $developerDTO->getDataNascimento(),
             $developerDTO->getHobby()
         ), $id);
     }

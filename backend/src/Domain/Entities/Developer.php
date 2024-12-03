@@ -10,7 +10,7 @@ class Developer
     private int $nivel_id;
     private string $nome;
     private string $sexo;
-    private DateTimeInterface $data_nascimento;
+    private string $data_nascimento;
     private string $hobby;
 
     /**
@@ -21,7 +21,7 @@ class Developer
      * @param DateTimeInterface $data_nascimento
      * @param string $hobby
      */
-    public function __construct(?int $id, int $nivel_id, string $nome, string $sexo, DateTimeInterface $data_nascimento, string $hobby)
+    public function __construct(?int $id, int $nivel_id, string $nome, string $sexo, string $data_nascimento, string $hobby)
     {
         $this->id = $id;
         $this->nivel_id = $nivel_id;
@@ -71,12 +71,12 @@ class Developer
         $this->sexo = $sexo;
     }
 
-    public function getDataNascimento(): \DateTimeInterface
+    public function getDataNascimento(): string
     {
         return $this->data_nascimento;
     }
 
-    public function setDataNascimento(\DateTimeInterface $data_nascimento): void
+    public function setDataNascimento(string $data_nascimento): void
     {
         $this->data_nascimento = $data_nascimento;
     }

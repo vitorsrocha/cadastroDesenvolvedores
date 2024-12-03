@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Cadastro de nivel</h2>
+<mat-dialog-content>
+
+  <form [formGroup]="formulario">
+    <mat-form-field appearance="outline">
+      <mat-label>Nivel</mat-label>
+      <input matInput id="nivel" formControlName="nivel" type="text">
+    </mat-form-field>
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="close()">Fechar</button>
+  <button mat-button (click)="save()">Salvar</button>
+</mat-dialog-actions>

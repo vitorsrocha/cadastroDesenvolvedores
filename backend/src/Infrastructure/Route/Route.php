@@ -2,6 +2,8 @@
 
 namespace App\Infrastructure\Route;
 
+use Exception;
+
 class Route
 {
     private array $routes = [];
@@ -17,6 +19,16 @@ class Route
 
     public function handleRequest(): void
     {
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+        header("Access-Control-Allow-Headers: Content-Type, Authorization");
+        header("Access-Control-Allow-Credentials: true");
+
+        if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+            http_response_code(200);
+            exit();
+        }
+
         $uri = $_SERVER['REQUEST_URI'];
         $method = $_SERVER['REQUEST_METHOD'];
 
@@ -30,6 +42,6 @@ class Route
         }
 
         http_response_code(404);
-        echo json_encode(['error' => 'Rota não encontrada'], JSON_PRETTY_PRINT);
+        echo json_encode('Rota não encontrada');
     }
 }

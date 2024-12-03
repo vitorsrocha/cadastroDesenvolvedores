@@ -1,0 +1,17 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin: 10 auto;
+    padding-top: 20px;
+}
+  
+mat-form-field {
+    width: 100%;
+}
+  
+button {
+    align-self: flex-start;
+}
+

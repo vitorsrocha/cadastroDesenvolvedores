@@ -16,11 +16,12 @@ class CreateLevel
         $this->repository = $repository;
     }
 
-    public function execute(LevelDTO $levelDTO): Level
+    public function execute(LevelDTO $levelDTO): ?Level
     {
         if (empty($levelDTO->getNivel())) {
             http_response_code(400);
-            throw new Exception("Todos os campos são obrigatórios");
+            echo json_encode("Todos os campos são obrigatórios");
+            return null;
         }
 
         $level = $this->repository->save(new Level(

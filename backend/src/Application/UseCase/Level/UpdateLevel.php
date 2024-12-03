@@ -16,16 +16,18 @@ class UpdateLevel
         $this->repository = $repository;
     }
 
-    public function execute(LevelDTO $levelDTO, int $id): Level
+    public function execute(LevelDTO $levelDTO, int $id): ?Level
     {
         if(is_null($this->repository->findById($id))) {
             http_response_code(400);
-            throw new Exception('Nenhum registro encontrado');
+            echo json_encode('Nenhum registro encontrado');
+            return null;
         }
 
         if (empty($levelDTO->getNivel())) {
             http_response_code(400);
-            throw new Exception("Todos os campos são obrigatórios");
+            echo json_encode("Todos os campos são obrigatórios");
+            return null;
         }
 
         return $this->repository->update(new Level($id, $levelDTO->getNivel()), $id);

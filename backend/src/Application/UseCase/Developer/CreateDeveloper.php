@@ -22,16 +22,19 @@ class CreateDeveloper
     /**
      * @throws \DateMalformedStringException
      */
-    public function execute(DevelopersDTO $developerDTO): Developer
+    public function execute(DevelopersDTO $developerDTO): ?Developer
     {
         $level = $this->levelRepository->findById($developerDTO->getNivelId());
         if ($level === null) {
-            throw new Exception("Level not found");
+            http_response_code(400);
+            echo json_encode("Nivel inexistente");
+            return null;
         }
 
         if (empty($developerDTO->getNivelId()) || empty($developerDTO->getNome()) || empty($developerDTO->getSexo()) || empty($developerDTO->getDataNascimento()) || empty($developerDTO->getHobby())) {
             http_response_code(400);
-            throw new Exception("Todos os campos são obrigatórios");
+            echo json_encode("Todos os campos são obrigatórios");
+            return null;
         }
 
         return $this->repository->save(new Developer(
@@ -39,7 +42,7 @@ class CreateDeveloper
             $developerDTO->getNivelId(),
             $developerDTO->getNome(),
             $developerDTO->getSexo(),
-            new DateTimeImmutable($developerDTO->getDataNascimento()),
+            $developerDTO->getDataNascimento(),
             $developerDTO->getHobby()));
 
     }

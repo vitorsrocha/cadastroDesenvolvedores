@@ -11,6 +11,7 @@ interface LevelRepositoryInterface
     public function update(Level $level, int $id): Level;
     public function delete(int $id): bool;
     public function findById(int $id): ?Level;
+    public function findByLevel(string $value): array;
 
 
 }

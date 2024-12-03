@@ -11,5 +11,7 @@ interface DeveloperRepositoryInterface
     public function update(Developer $developer, int $id): Developer;
     public function delete(int $id): bool;
     public function findByNivelDeveloper(int $id): ?Developer;
-    public function findByDeveloper(int $id): ?Developer;
+    public function findByIdDeveloper(int $id): ?Developer;
+    public function findByDeveloper(string $value): array;
+
 }

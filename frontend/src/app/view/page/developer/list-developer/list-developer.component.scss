@@ -5,6 +5,47 @@ table {
     margin-right: auto;
 }
 
-.btnUsers{
+mat-card {
+    overflow: auto;
+}
+
+mat-dialog-content {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+mat-form-field{
+    width: 50vw;
+}
+
+.btnFilter{
     margin-left: 10px;
+}
+
+.btnList{
+    margin-left: 10px;
+}
+
+.btnAdd:hover {
+    background-color: green;
+    right: 30px;
+    bottom: 30px;
+    height: 70px;
+    width: 70px;
+    border-radius: 35px;
+    transition: all 0.3s ease 0s;
+    }
+
+.btnAdd{
+    position:absolute;
+    right: 20px;
+    bottom: 20px;
+    height: 60px;
+    width: 60px;
+    background-color: green;
+    color: white;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }

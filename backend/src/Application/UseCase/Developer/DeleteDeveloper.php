@@ -16,9 +16,10 @@ class DeleteDeveloper
 
     public function execute(int $id): bool
     {
-        if(is_null($this->repository->findByDeveloper($id))){
+        if(is_null($this->repository->findByIdDeveloper($id))){
             http_response_code(400);
-            throw new Exception('Nenhum registro encontrado.');
+            echo json_encode('Nenhum registro encontrado.');
+            return false;
         }
         return $this->repository->delete($id);
     }

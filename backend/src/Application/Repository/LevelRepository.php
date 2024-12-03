@@ -75,4 +75,29 @@ class LevelRepository implements LevelRepositoryInterface
 
         return null;
     }
+
+    public function findByLevel(string $value): array
+    {
+        $searchTerm = '%' . $value . '%';
+        $stmt = $this->pdo->prepare(' SELECT *
+                                            FROM niveis
+                                            WHERE
+                                                CAST(id AS CHAR) LIKE :searchTerm OR
+                                                nivel LIKE :searchTerm;
+                                            ');
+        $stmt->bindValue(':searchTerm', $searchTerm, );
+        $stmt->execute();
+        $level = [];
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $response = [
+                'id' => $row['id'],
+                'nivel' => $row['nivel']
+            ];
+
+            $level[] = $response;
+        }
+
+        return $level;
+    }
 }

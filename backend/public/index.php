@@ -11,10 +11,13 @@ $router->addRoute('POST', $URL_BASE.'/developer', [new DeveloperController(), 'c
 $router->addRoute('GET', $URL_BASE.'/developer', [new DeveloperController(), 'listDeveloper']);
 $router->addRoute('PUT', $URL_BASE.'/developer', [new DeveloperController(), 'updateDeveloper']);
 $router->addRoute('DELETE', $URL_BASE.'/developer', [new DeveloperController(), 'deleteDeveloper']);
+$router->addRoute('GET', $URL_BASE.'/developer/filter', [new DeveloperController(), 'filterDeveloper']);
 
 $router->addRoute('POST', $URL_BASE.'/level', [new LevelController(), 'createLevel']);
 $router->addRoute('GET', $URL_BASE.'/level', [new LevelController(), 'listLevel']);
 $router->addRoute('PUT', $URL_BASE.'/level', [new LevelController(), 'updateLevel']);
 $router->addRoute('DELETE', $URL_BASE.'/level', [new LevelController(), 'deleteLevel']);
+$router->addRoute('GET', $URL_BASE.'/level/filter', [new LevelController(), 'filterLevel']);
+
 
 $router->handleRequest();

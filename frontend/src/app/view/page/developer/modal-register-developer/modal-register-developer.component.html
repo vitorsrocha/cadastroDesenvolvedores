@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Cadastro de desenvolvedores</h2>
+<mat-dialog-content>
+
+  <form [formGroup]="formulario">
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput id="nome" formControlName="nome" type="text">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Data de Nascimento</mat-label>
+      <input matInput id="datan_nascimento" formControlName="data_nascimento" type="date">
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Sexo</mat-label>
+      <mat-select id="sexo" formControlName="sexo">
+        <mat-option value="M">Masculino</mat-option>
+        <mat-option value="F">Feminino</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nível</mat-label>
+      <mat-select id="nivel" formControlName="nivel">
+        <mat-option *ngFor="let level of this.levels" [value]="level.id">{{level.nivel}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Hobby</mat-label>
+      <input matInput id="hobby" formControlName="hobby" type="text">
+    </mat-form-field>
+  
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="close()">Fechar</button>
+  <button mat-button (click)="save()">Salvar</button>
+</mat-dialog-actions>
