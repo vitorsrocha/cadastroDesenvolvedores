@@ -1,8 +1,8 @@
 version: '3.8'
 
 services:
-
-  nginx:
+ 
+  backend:
     image: cadastro-desenvolvedores-backend
     container_name: backend
     ports:
@@ -14,6 +14,16 @@ services:
       - mysql
     networks:
       - app_network
+      
+  frontend:
+    build: .
+    image: cadastro-desenvolvedores-frontend
+    container_name: frontend
+    restart: always
+    ports:
+      - "90:80"
+    volumes:
+      - ./dist:/usr/share/nginx/html
 
   mysql:
     image: mysql:8

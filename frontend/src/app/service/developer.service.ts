@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { OutDeveloper } from '../model/out-developer';
 import { InDeveloper } from '../model/in-developer';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeveloperService {
-  private apiUrl = 'http://localhost:81/api/developer';
+  private apiUrl = `${environment.apiUrl}/desenvolvedores`;
 
   constructor(private http: HttpClient) {}
 
@@ -29,6 +30,6 @@ export class DeveloperService {
   }
 
   filter(value: string): Observable<OutDeveloper[]> {
-    return this.http.get<OutDeveloper[]>(this.apiUrl + `/filter?value=${value}`)
+    return this.http.get<OutDeveloper[]>(this.apiUrl + `/filtro?value=${value}`)
   }
 }

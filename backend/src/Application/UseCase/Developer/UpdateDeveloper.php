@@ -6,8 +6,6 @@ use App\Application\DTOs\DevelopersDTO;
 use App\Domain\Entities\Developer;
 use App\Domain\Repository\DeveloperRepositoryInterface;
 use App\Domain\Repository\LevelRepositoryInterface;
-use DateTimeImmutable;
-use Exception;
 
 class UpdateDeveloper
 {

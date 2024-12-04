@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Level } from '../model/level';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LevelService {
-  private apiUrl = 'http://localhost:81/api/level';
+  private apiUrl = `${environment.apiUrl}/niveis`;
 
   constructor(private http: HttpClient) {}
 
@@ -26,8 +27,8 @@ export class LevelService {
   delete(id: number): Observable<boolean> {
     return this.http.delete<boolean>(this.apiUrl + `?id=${id}`)
   }
-  
+
   filter(value: string): Observable<Level[]> {
-    return this.http.get<Level[]>(this.apiUrl + `/filter?value=${value}`)
+    return this.http.get<Level[]>(this.apiUrl + `/filtro?value=${value}`)
   }
 }

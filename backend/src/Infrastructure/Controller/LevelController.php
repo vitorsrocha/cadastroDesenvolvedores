@@ -97,7 +97,8 @@ class LevelController
             $levelDTO = new LevelDTO($data['nivel']);
             $level = $updateLevel->execute($levelDTO, $id);
 
-            echo json_encode($level->toArray(), JSON_PRETTY_PRINT);
+            if(!is_null($level))
+                echo json_encode($level->toArray(), JSON_PRETTY_PRINT);
         } catch (PDOException $e) {
             echo json_encode('Erro ao atualizar nivel: ' . $e->getMessage());
         } catch (Exception $e) {
@@ -134,7 +135,7 @@ class LevelController
     }
 
     public function filterLevel(): void{
-        $value = $_GET['value'] ?? null;
+        $value = $_GET['valor'] ?? null;
         if (empty($value)) {
             http_response_code(400);
             echo json_encode(['message' => 'Valor inválido']);

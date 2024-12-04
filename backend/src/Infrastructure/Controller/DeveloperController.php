@@ -14,8 +14,10 @@ use App\Infrastructure\DataBases\DataBaseConnection;
 use Exception;
 use PDOException;
 
+
 class DeveloperController
 {
+
     public function listDeveloper(): void
     {
         try {
@@ -110,9 +112,12 @@ class DeveloperController
                 $data['data_nascimento'],
                 $data['hobby']
             );
-
+            $developersDTO->setId($id);
             $developerDTOResponse = $updateDevelopers->execute($developersDTO, $id);
-            echo json_encode($developerDTOResponse->toArray(), JSON_PRETTY_PRINT);
+
+            if(!is_null($developerDTOResponse))
+                echo json_encode($developerDTOResponse->toArray(), JSON_PRETTY_PRINT);
+
         } catch (PDOException $e) {
             echo json_encode('Erro ao atualizar desenvolvedor: ' . $e->getMessage());
         } catch (Exception $e) {
@@ -147,7 +152,7 @@ class DeveloperController
     }
 
     public function filterDeveloper(): void{
-        $value = $_GET['value'] ?? null;
+        $value = $_GET['valor'] ?? null;
         if (empty($value)) {
             http_response_code(400);
             echo json_encode(['message' => 'Valor inválido']);
@@ -169,7 +174,5 @@ class DeveloperController
             echo json_encode($e->getMessage());
         }
     }
-
-
 
 }

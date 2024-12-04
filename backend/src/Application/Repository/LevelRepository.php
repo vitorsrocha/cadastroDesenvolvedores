@@ -27,13 +27,20 @@ class LevelRepository implements LevelRepositoryInterface
 
     public function listAll(): array
     {
-        $stmt = $this->pdo->query('SELECT * FROM niveis');
+        $stmt = $this->pdo->query('SELECT n.id, n.nivel, COUNT(d.id) AS qtdeDev
+                                        FROM niveis n
+                                        LEFT JOIN desenvolvedores d ON d.nivel_id = n.id
+                                        GROUP BY n.id, n.nivel');
         $levels= [];
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $level = new LevelDTO($row['nivel']);
-            $level->setId($row['id']);
-            $levels[] = $level->toArray();
+            $response = [
+                'id' => $row['id'],
+                'nivel' => $row['nivel'],
+                'qtdeDev' => $row['qtdeDev']
+            ];
+
+            $levels[] = $response;
         }
 
         return $levels;

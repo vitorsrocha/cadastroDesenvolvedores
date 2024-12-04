@@ -19,6 +19,7 @@ class Route
 
     public function handleRequest(): void
     {
+        error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
         header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
         header("Access-Control-Allow-Headers: Content-Type, Authorization");

@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "95d48a0f-8084-4a8e-9d93-5c16ed5aba85",
+		"name": "Cadastro de Desenvolvedores",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10965938"
+	},
+	"item": [
+		{
+			"name": "Developer",
+			"item": [
+				{
+					"name": "createDesenvolvedores",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nivel_id\": 1,\n    \"nome\": \"Vitor Sidnei rocha\",\n    \"sexo\": \"M\",\n    \"data_nascimento\": \"1996-12-16\",\n    \"hobby\": \"jogos\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:81/api/desenvolvedores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"api",
+								"desenvolvedores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listDesenvolvedores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:81/api/desenvolvedores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"api",
+								"desenvolvedores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filterDesenvolvedores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:81/api/desenvolvedores/filtro?valor=vitor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"api",
+								"desenvolvedores",
+								"filtro"
+							],
+							"query": [
+								{
+									"key": "valor",
+									"value": "vitor"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateDesenvolvedores",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nivel_id\": 1,\n    \"nome\": \"Vitor Sidnei Rocha1\",\n    \"sexo\": \"M\",\n    \"data_nascimento\": \"1996-12-16\",\n    \"hobby\": \"jogos e esporte\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:81/api/desenvolvedores?id=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"api",
+								"desenvolvedores"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteDesenvolvedores",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:81/api/desenvolvedores?id=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"api",
+								"desenvolvedores"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Nivel",
+			"item": [
+				{
+					"name": "listNiveis",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:81/api/niveis",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"api",
+								"niveis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteNiveis",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:81/api/niveis?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"api",
+								"niveis"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createNiveis",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nivel\":\"trainee\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:81/api/niveis",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"api",
+								"niveis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateNiveis",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nivel\":\"Juniorr\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:81/api/niveis?id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"api",
+								"niveis"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filterNiveis",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:81/api/niveis/filtro?valor=traine",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "81",
+							"path": [
+								"api",
+								"niveis",
+								"filtro"
+							],
+							"query": [
+								{
+									"key": "valor",
+									"value": "traine"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
