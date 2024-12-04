@@ -88,7 +88,7 @@ Na Raiz do projeto contém o arquivo o schema (schema.sql) das tabelas.
 
 ### **Desenvolvedores**
 
-**Filtro Desenvolvedores (GET):** `/api/desenvolvedores/filtro?valor=value`
+- **Filtro Desenvolvedores (GET):** `/api/desenvolvedores/filtro?valor=value`
 
   - **Resposta de Sucesso (200):** Retorna a lista de níveis existentes.
 
