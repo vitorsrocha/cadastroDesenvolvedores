@@ -26,6 +26,13 @@ O projeto contém um arquivo de importação da collection Postman chamado 'Cada
 
 Na Raiz do projeto contém o arquivo o schema (schema.sql) das tabelas.
 
+## URL 
+
+## Frontend 
+
+localhost:90/desenvolvedores
+localhost:90/niveis
+
 ## 🚚 Endpoints da API 
 
 ### **Níveis**
