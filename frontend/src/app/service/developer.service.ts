@@ -30,6 +30,6 @@ export class DeveloperService {
   }
 
   filter(value: string): Observable<OutDeveloper[]> {
-    return this.http.get<OutDeveloper[]>(this.apiUrl + `/filtro?value=${value}`)
+    return this.http.get<OutDeveloper[]>(this.apiUrl + `/filtro?valor=${value}`)
   }
 }

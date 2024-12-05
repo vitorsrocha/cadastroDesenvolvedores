@@ -29,6 +29,6 @@ export class LevelService {
   }
 
   filter(value: string): Observable<Level[]> {
-    return this.http.get<Level[]>(this.apiUrl + `/filtro?value=${value}`)
+    return this.http.get<Level[]>(this.apiUrl + `/filtro?valor=${value}`)
   }
 }
