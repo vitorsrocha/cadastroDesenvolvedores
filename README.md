@@ -28,10 +28,10 @@ Na Raiz do projeto contém o arquivo o schema (schema.sql) das tabelas.
 
 ## URL 
 
-## Frontend 
+### Frontend 
 
-localhost:90/desenvolvedores
-localhost:90/niveis
+- localhost:90/desenvolvedores
+- localhost:90/niveis
 
 ## 🚚 Endpoints da API 
 
