@@ -32,8 +32,10 @@ Na Raiz do projeto contém o arquivo o schema (schema.sql) das tabelas.
 
 - localhost:90/desenvolvedores
 - localhost:90/niveis
-
+  
 ## 🚚 Endpoints da API 
+
+- BaseURL = localhost:81
 
 ### **Níveis**
 
